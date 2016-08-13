@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Datepicker - Default functionality</title>
+	<link rel="stylesheet" href="css/jquery.ui.all.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.css">
+	
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+	
+	<link rel="stylesheet" href="css/demos.css">
+
+
+
+	<script>
+	
+		
+		
+		$(document).ready(function(){
+    $("#from_date").datepicker({
+		changeMonth: true,
+			changeYear: true,
+			yearRange : "1962:2023",
+			dateFormat: "dd-mm-yy",
+			showon:"button",
+			buttonImage:"http://localhost/openjokeradmin/images/icon/calendar_icon.gif",
+			buttonImageOnly:true,
+        onSelect: function(selected) {
+          $("#to_date").datepicker("option","minDate", selected)
+        }
+    });
+    $("#to_date").datepicker({ 
+		changeMonth: true,
+			changeYear: true,
+			yearRange : "1962:2023",
+			dateFormat: "dd-mm-yy",
+			showon:"button",
+			buttonImage:"http://localhost/openjokeradmin/images/icon/calendar_icon.gif",
+			buttonImageOnly:true,
+
+        onSelect: function(selected) {
+           $("#from_date").datepicker("option","maxDate", selected)
+        }
+    });  
+});
+
+		
+		
+		
+	</script>
+</head>
+<body>
+
+<p>From Date: <input type="text" name="from_date" id="from_date"><!--<img src="../images/icon/calendar_icon.gif" align="absmiddle">--></p>
+<p>To Date: <input type="text" id="to_date" name="to_date"><!--<img src="../images/icon/calendar_icon.gif" align="absmiddle">--></p>
+
+</body>
+</html>

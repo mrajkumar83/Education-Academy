@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Add Enquiry</title>
+<meta name="keywords" content="sark, sarktechnologies, sarktechnologies.net" />
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ -->
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/enquiry.js"></script>
+<script type="text/javascript" src="js/datepicker/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/datepicker/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="js/enquiry_dates.js"></script>
+<script language="javascript" type="text/javascript">
+    window.history.forward();
+</script>
+</head>
+<body>
+<div id="main">
+<div class="top-bar">
+  <h1>Add Enquiry</h1>
+</div>
+<div class="content-warp">
+  <div class="table">
+    <form method="post" name="enquiryform" id="enquiryform" action="../admin/logic/enquiry_logic.php?op=A" enctype="multipart/form-data">
+      <table cellspacing="0" cellpadding="0" class="listing form">
+        <tbody>
+          <tr>
+            <th colspan="4" class="full">Enquiry Details</th>
+          </tr>
+          <tr class="bg">
+            <td class="first"><strong>First Name</strong><span class="complsory">*</span></td>
+            <td class="last"><input type="text" value="" id="enquiry_fname" name="enquiry_fname" class="text"></td>
+            <td class="first"><strong>Last Name</strong><span class="complsory">*</span></td>
+            <td class="last"><input type="text" value="" id="enquiry_lname" name="enquiry_lname" class="text"></td>
+          </tr>
+          <tr>
+            <td class="first"><strong>Phone No</strong><span class="complsory">*</span></td>
+            <td class="last"><input type="text" value="" id="enquiry_phno" name="enquiry_phno" class="text"></td>
+            <td class="first"><strong>Email</strong><span class="complsory">*</span></td>
+            <td class="last"><input type="text" value="" id="enquiry_email" name="enquiry_email" class="text"></td>
+          </tr>
+          <tr class="bg">
+            <td class="first"><strong>Batch</strong><span class="complsory">*</span></td>
+            <td class="last"><select name="enquiry_batch" id="enquiry_batch" required="required" tabindex="1" onchange="javascript:get_amount(this.value)">
+                <option value="">-- Select --</option>
+                <option value="1">Batch12</option>
+                <option value="2">batch454</option>
+              </select></td>
+            <td class="first"><strong>Course</strong><span class="complsory">*</span></td>
+            <td class="last"><input type="text" value="" id="std_course" name="std_course" readonly="readonly" class="text"></td>
+            </td>
+          </tr>
+          <tr>
+            <td class="first"><strong>Enquiry</strong></td>
+            <td colspan="3" class="last"><textarea name='enquiry_comments' id='enquiry_comments' style="height: 50px; width: 300px"></textarea></td>
+          </tr>
+          <tr class="bg">
+            <td class="first"><strong>Enquiry Date:</strong></td>
+            <td class="last" colspan="3"><input type="text"  class="text" name="enquiry_crtdate" id="enquiry_crtdate" value="12/13/2013"></td>
+          </tr>
+          <tr >
+            <td class="first"><strong>Enquiry Type</strong></td>
+            <td colspan="3" class="last"><input type="radio" class="textarea" name="enquiry_type" onclick="change_etype(this.value)" value="Direct">
+              &nbsp;Direct&nbsp;&nbsp;
+              <input type="radio" class="textarea" name="enquiry_type" onclick="change_etype(this.value)"  value="Call" checked>
+              &nbsp;Call&nbsp; </td>
+          </tr>
+          <tr class="bg" id="callTR1" >
+            <td class="first"><strong>Call1 Status</strong></td>
+            <td colspan="3" class="last"><select name="enquiry_call1_status" id="enquiry_call1_status" required="required" tabindex="1">
+                <option value="">-- Select --</option>
+                <option value="3">Busy</option>
+                <option value="4">Invalid</option>
+                <option value="1">Not Interested</option>
+                <option value="2">Unreachable</option>
+              </select></td>
+          </tr>
+          <tr id="callTR2">
+            <td class="first"><strong>Call1 Comments</strong></td>
+            <td colspan="3" class="last"><textarea name='enquiry_call1_comments' id='enquiry_call1_comments' style="height: 50px; width: 300px"></textarea></td>
+          </tr>
+          <tr class="bg" id="callTR3">
+            <td class="first"><strong>Call 1 Date</strong></td>
+            <td colspan="3" class="last"><input type="text" value="" name="enquiry_call1_date" id="enquiry_call1_date" ></td>
+          </tr>
+          <tr class="bg">
+            <td class="first"><strong>Date Of Birth:</strong></td>
+            <td class="last" colspan="3"><input type="text" class="text" name="enquiry_dob" id="enquiry_dob" value=""></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="buttons">
+        <input type="hidden" value="A" name="op">
+        <input type="hidden" value="" name="id">
+        <input type="hidden" id="amount_pay" name="amount_pay">
+        <input type="reset" value="Cancel" name="Cancel" onclick="document.location.href='manage_enquiry.php'">
+        &nbsp; &nbsp;
+        <input type="submit" value="Submit" name="Add">
+      </p>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function change_etype(val)
+{
+	if(val=="Direct")
+	{
+		document.getElementById('callTR1').style.display ='none';
+		document.getElementById('callTR2').style.display ='none';
+		document.getElementById('callTR3').style.display ='none';
+
+	}
+	else if(val=="Call")
+	{
+		document.getElementById('callTR1').style.display ='';
+		document.getElementById('callTR2').style.display ='';
+		document.getElementById('callTR3').style.display ='';
+
+	}
+
+}
+function getXMLHTTP() 
+{
+	var xmlhttp=false;	
+	try{
+		xmlhttp=new XMLHttpRequest();
+	}
+	catch(e)	{		
+		try{			
+			xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e){
+			try{
+			xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch(e1){
+				xmlhttp=false;
+			}
+		}
+	}
+		
+	return xmlhttp;
+}
+
+function get_amount(val) 
+{
+	if(val!='')
+	{
+	var strURL="get_batch_amount.php?batch_id="+val;
+	
+	var req = getXMLHTTP();
+	if (req) {
+		
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				// only if "OK"
+				if (req.status == 200) 
+				{	
+					txt = req.responseText;
+					var res = txt.split("::",2);
+					document.getElementById('amount_pay').value = res[0];	
+					document.getElementById('std_course').value = res[1];
+				} 
+				else 
+				{
+					//alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+				}
+			}				
+		}			
+		req.open("GET", strURL, true);
+		req.send(null);
+	}		
+	}
+	else
+	{
+		document.getElementById('amount_pay').value = 0;	
+					document.getElementById('std_course').value = '';
+	}
+}
+</script>
+
+</div>
+</body>
+</html>

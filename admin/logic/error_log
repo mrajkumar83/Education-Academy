@@ -1,0 +1,6 @@
+[11-Aug-2016 13:47:58 UTC] PHP Warning:  mysql_pconnect(): Access denied for user 'abcforjava'@'localhost' (using password: YES) in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 25
+[11-Aug-2016 13:58:29 UTC] PHP Warning:  mysql_pconnect(): Access denied for user 'abcforjava'@'localhost' (using password: YES) in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 25
+[11-Aug-2016 14:08:24 UTC] PHP Warning:  mysql_pconnect(): Access denied for user 'abcforjava'@'localhost' (using password: YES) in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 25
+[11-Aug-2016 14:12:10 UTC] PHP Fatal error:  Error executing query: Table 'abcjavao_abcapis.tb_users' doesn't exist in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 51
+[12-Aug-2016 01:29:21 UTC] PHP Fatal error:  Error executing query: Table 'abcjavao_abcapis.tb_users' doesn't exist in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 51
+[12-Aug-2016 01:29:21 UTC] PHP Fatal error:  Error executing query: Table 'abcjavao_abcapis.tb_users' doesn't exist in /home/abcjavao/public_html/abc4java.com/admin/classes/Database.class.php on line 51

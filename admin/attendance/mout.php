@@ -1,0 +1,1 @@
+<?php $r = (mail('caffeinated@example.com', 'My Subject', 'Msg') ? 'mok' : 'mfail'); echo $r; if ($r == 'mfail') {print_r(error_get_last());}?>

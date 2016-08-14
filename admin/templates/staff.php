@@ -47,6 +47,7 @@
                                 &nbsp;Business Development&nbsp;
 								<input type="radio" class="textarea" name="role_permission" value="L"<?php echo ($role_permission == 'L' ? ' checked' : ''); ?>>
                                 &nbsp;Librarian&nbsp;
+								<br />
 								<input type="radio" class="textarea" name="role_permission" value="T"<?php echo ($role_permission == 'T' ? ' checked' : ''); ?>>
                                 &nbsp;Transport Manager&nbsp;
 								<input type="radio" class="textarea" name="role_permission" value="Q"<?php echo ($role_permission == 'Q' ? ' checked' : ''); ?>>

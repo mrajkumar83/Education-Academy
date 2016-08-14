@@ -89,8 +89,17 @@ switch ($op) {
                     if ($data->role_permission == 'H') {
                         $role_name = 'HR';
                     }
-					 if ($data->role_permission == 'B') {
+					if ($data->role_permission == 'B') {
                         $role_name = 'Business Development';
+                    }
+					if ($data->role_permission == 'L') {
+                        $role_name = 'Librarian';
+                    }
+					if ($data->role_permission == 'T') {
+                        $role_name = 'Transport Manager';
+                    }
+					if ($data->role_permission == 'Q') {
+                        $role_name = 'Quaters Incharge';
                     }
                 }
                 $body = '<div  style="float:left;width:960px;height: 500px; background: #fff; padding-left:15px;"> 

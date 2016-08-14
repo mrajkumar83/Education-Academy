@@ -18,7 +18,7 @@ else {
     if (isset($data->staff_photo) && $data->staff_photo != '' && file_exists($path .'photos/' . $data->staff_photo))
         $img = $path . 'photos/' . $data->staff_photo;
 
-    $permissions = array("C" => "Counselor", "F" => "Finance", "O" => "Operational", "H" => "HR" , "B" => "Business Development");
+    $permissions = array("C" => "Counselor", "F" => "Finance", "O" => "Operational", "H" => "HR" , "B" => "Business Development", 'L' => 'Library Management', 'T' => 'Transport Management', 'Q' => 'Accomadation Management');
 }
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,26 +46,45 @@ else {
         <ul class="nav">
             <li class="leftMenuActive"><a target="frame1" href="admin/index.php"><span><span>Home</span></span></a></li>
             <?php
-            if ($UTYPE == 'AD') {
-                echo '<li><a target="frame1" href="admin/admin.php"><span><span>Admin</span></span></a></li>';
-            }
-            if ($UTYPE == 'SA') {
-                echo '<li><a target="frame1" href="admin/super_admin.php"><span><span>Super Admin</span></span></a></li>';
-            }
-            if ($UTYPE == 'SF') {
-                switch ($_SESSION['UROLE_PERMISSION']) {
-                    case 'C': $page_name = 'counselor.php';break;
-                    case 'H': $page_name = 'hr.php';break;
-                    case 'O': $page_name = 'operations.php';break;
-                    case 'F': $page_name = 'finance.php';break;
-					case 'B': $page_name = 'bdevelopment.php';break;
-                }
-                echo '<li><a target="frame1" href="admin/' . $page_name . '"><span><span>' . $permissions[$_SESSION['UROLE_PERMISSION']] . '</span></span></a></li>';
-            } elseif ($UTYPE == "SD") {// || $UTYPE == "ES"
-                ?>
-                <li><a target="frame1" href="admin/studentdet.php"><span><span>Student</span></span></a></li>
-            <?php } ?>
-
+			switch($UTYPE){
+				case 'AD':
+					echo '<li><a target="frame1" href="admin/admin.php"><span><span>Admin</span></span></a></li>';
+				break;				
+				
+				case 'SF':
+					switch ($_SESSION['UROLE_PERMISSION']) {
+						case 'C': $page_name = 'counselor.php';break;
+						case 'H': $page_name = 'hr.php';break;
+						case 'O': $page_name = 'operations.php';break;
+						case 'F': $page_name = 'finance.php';break;
+						case 'B': $page_name = 'bdevelopment.php';break;
+						case 'L': $page_name = 'library.php';break;
+						case 'T': $page_name = 'transport.php';break;
+						case 'Q': $page_name = 'accomadation.php';break;
+					}
+					echo '<li><a target="frame1" href="admin/' . $page_name . '"><span><span>', $permissions[$_SESSION['UROLE_PERMISSION']] , '</span></span></a></li>';
+				break;
+				
+				case "SD": //$UTYPE == "ES"
+					echo '<li><a target="frame1" href="admin/studentdet.php"><span><span>Student</span></span></a></li>';
+				break;
+				case 'SA':
+					echo '<li><a target="frame1" href="admin/super_admin.php"><span><span>Super Admin</span></span></a></li>';
+				break;
+				
+				case 'LM' || 'SA':
+					echo '<li><a target="frame1" href="admin/library_admin.php"><span><span>Library Management</span></span></a></li>';
+				break;
+				
+				case 'TM' || 'SA':
+					echo '<li><a target="frame1" href="admin/transport_admin.php"><span><span>Transport Management</span></span></a></li>';
+				break;
+				
+				case 'QM' || 'SA':
+					echo '<li><a target="frame1" href="admin/accomadation_admin.php"><span><span>Accomadation Management</span></span></a></li>';
+				break;
+			}//End of switch
+			?>
             <li class="right"><a href="logout.php">Logout</a></li>
         </ul>
         <div class="nav-contright"></div>

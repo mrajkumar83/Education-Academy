@@ -2,7 +2,7 @@
 /* CSS Document */
 *{margin:0; padding:0;}
 body{font-family:Verdana, Geneva, sans-serif; font-size:11px; line-height:20px;}
-.content{width:1000px; margin:0 auto;}
+.content{width:1010px; margin:0 auto;}
 .header{height:95px;}
 .logo{background-image:url(../img/logo.jpg); width:155px; height:95px; clear:both; float:left;}
 .logo1{background-image:url(../img/logo.jpg); width:155px; height:95px; clear:both; }
@@ -27,7 +27,7 @@ h1{color:#01aae3; margin:2px 0; font-size:18px;}
 .login-box .label{width:80px; margin-left:6px;}
 .login-box .label-box{width:150px;}
 .login-box .label-box input[type=text], .label-box input[type=password]{border:1px solid #ccc; height:25px; width:150px;}
-.left-panel{width:144px; display:inline-block; height:450px; overflow:auto; vertical-align:top; margin-left:5px;}
+.left-panel{width:163px; display:inline-block; height:475px; overflow:auto; vertical-align:top; margin-left:1px;}
 .left-menu{ /*border-bottom:2px solid #1374d6;*/ width: 144px;}
 .left-menu h2{background:url(../img/menu-center.png); text-align:left; font-size:11px; padding-left:5px; color:#fff; height:22px; line-height:22px; float:left; width:122px;}
 .left-menu .left{background:url(../img/menu-left.png); width:7px; height:21px; float:left;}
@@ -42,7 +42,7 @@ table.listing {
     border: 1px solid #9097A9;
     margin: 0;
     padding: 0;
-    width: 733px;
+    width: 775px;
 }
 table.listing th.full {
     border-left: 0 none;
@@ -163,7 +163,7 @@ table.grid td.center{text-align:center;}
     background: none repeat scroll 0 0 #ECECEC;
     padding: 5px;
 }
-.main-frame{width: 1000px; height:450px; overflow:hidden;}
+.main-frame{width: 1024px; height:480px; overflow:hidden;}
 .inner-frame{width: 830px; display: inline-block; height: 450px;}
 .error{color: #f00;}
 .message-div{ font-weight:bold; margin:5px; color:#FF0000;}

@@ -57,7 +57,7 @@ if (isset($_REQUEST['Err'])) {
                                
                              
                                 <div class="boxText" >
-                                    <form method="post" name="loginfrm" id="loginfrm" action="admin/logic/login_logic.php" autocomplete="off" target="_blank">
+                                    <form method="post" name="loginfrm" id="loginfrm" action="admin/logic/login_logic.php" autocomplete="off">
                                         <ul class="loginFields" style="border:2px solid #fff;width:356px;">
                                             <li>Username<span class="complsory">*</span></li>
                                             <li>
@@ -72,8 +72,6 @@ if (isset($_REQUEST['Err'])) {
                                             </li>
                                         </ul>
                                     </form>
-                                  
-                                   
                                 </div>
                             </div>
                  

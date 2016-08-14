@@ -62,6 +62,15 @@ while ($data = mysql_fetch_object($result)) {
         if ($data->role_permission == 'A') {
             $role_name = 'Admin';
         }
+		if ($data->role_permission == 'L') {
+			$role_name = 'Librarian';
+		}
+		if ($data->role_permission == 'T') {
+			$role_name = 'Transport Manager';
+		}
+		if ($data->role_permission == 'Q') {
+			$role_name = 'Quaters Incharge';
+		}
     }
     $class = ($row % 2) ? 'even' : 'odd';
     echo '<tr class="', $class, '">', "\n\t";

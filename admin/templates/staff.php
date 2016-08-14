@@ -36,15 +36,21 @@
                     <tr>
                             <td class="first"><strong>Permissions</strong></td>
                             <td colspan="3" class="last"><input type="radio" class="textarea" name="role_permission" value="C"<?php echo ($role_permission == 'C' ? ' checked' : ''); ?>>
-                                &nbsp;Counselor&nbsp;&nbsp;
+                                &nbsp;Counselor&nbsp;
                                 <input type="radio" class="textarea" name="role_permission" value="F"<?php echo ($role_permission == 'F' ? ' checked' : ''); ?>>
                                 &nbsp;Finance&nbsp;
                                 <input type="radio" class="textarea" name="role_permission" value="O"<?php echo ($role_permission == 'O' ? ' checked' : ''); ?>>
-                                &nbsp;Operational&nbsp;&nbsp;
+                                &nbsp;Operational&nbsp;
                                 <input type="radio" class="textarea" name="role_permission" value="H"<?php echo ($role_permission == 'H' ? ' checked' : ''); ?>>
                                 &nbsp;HR&nbsp;
                                 <input type="radio" class="textarea" name="role_permission" value="B"<?php echo ($role_permission == 'B' ? ' checked' : ''); ?>>
                                 &nbsp;Business Development&nbsp;
+								<input type="radio" class="textarea" name="role_permission" value="L"<?php echo ($role_permission == 'L' ? ' checked' : ''); ?>>
+                                &nbsp;Librarian&nbsp;
+								<input type="radio" class="textarea" name="role_permission" value="T"<?php echo ($role_permission == 'T' ? ' checked' : ''); ?>>
+                                &nbsp;Transport Manager&nbsp;
+								<input type="radio" class="textarea" name="role_permission" value="Q"<?php echo ($role_permission == 'Q' ? ' checked' : ''); ?>>
+                                &nbsp;Quaters Incharge&nbsp;
                                 <?php
                                 if (isset($UTYPE) && $UTYPE == "SA") {
                                  ?>

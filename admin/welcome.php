@@ -7,22 +7,6 @@ require_once('common/sess.php');
 $db = new Query();
 
 $permissions = array("C" => "Counselor", "F" => "Finance", "O" => "Operational", "H" => "HR" , "B" => "Business Development");
-/*
-if ($UTYPE == 'AD') {
-    $welcome_name = "Admin";
-}
-if ($UTYPE == 'SA') {
-    $welcome_name = "Super Admin";
-}
-if ($UTYPE == 'SF') {
-    $welcome_name = $permissions[$_SESSION['UROLE_PERMISSION']];
-} elseif ($UTYPE == "SD") {
-    $welcome_name = "Student";
-}
-elseif ($UTYPE == 'GS') {
-    $welcome_name = "Guest";
-}*/
-
 
 $data1 = $db->fetchRecord(' tb_users ', ' user_branch,user_fullname,user_type ', ' user_id="'.$_SESSION['UID'].'" ');
 $row1 = $db->fetchRecord(' tb_branches ', ' branch_name ', ' branch_id=' . $data1->user_branch . ' ');
@@ -31,22 +15,44 @@ $row1 = $db->fetchRecord(' tb_branches ', ' branch_name ', ' branch_id=' . $data
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="refresh" content="60">
-		<meta name="author" content="sark, sarktechnologies, sarktechnologies.net">
+		<meta name="author" content="Rajkumar Madishetti">
 
         <title>ABC for JAVA & TESTING</title>
-        <link href="../css/styles.css" rel="stylesheet" type="text/css">
+		<link href="./css/styles.css" type="text/css" rel="stylesheet">
+		
     </head>
 
     <body>
         <div class="content-warp home">
 			 <h1>Welcome  <?php echo $data1->user_fullname; ?><?php echo ((($data1->user_type != 'SD' && $data1->user_type != 'GS') && isset($row1->branch_name) && $row1->branch_name != '' ) ? (', ' . $row1->branch_name) : ''); ?></h1>
-			<?php echo $date_time;?>
+			<?php //echo $date_time;?>
         </div>
 
 <?php
+	$current_date = date("Y-m-d", mktime(date('H')+5,date('i')+30,date('s'))); 
+	
+	$cond = ' A.announcement_status="A" AND announcement_date>="'.$current_date.'"  AND (A.announcement_createdby=1 || (A.announcement_createdby=U.user_id ';
+	$cond .= (isset($UTYPE) && $UTYPE == 'SA') ? '' : ' AND U.user_branch="' . $data1->user_branch .'" ';//$user->user_branch
+	$cond .= '))';
+	$announcements = $db->fetchAllRecord(' tb_announcements A, tb_users U', ' DISTINCT(announcement_id), announcement_title, DATE_FORMAT(announcement_date, "%e/%m/%Y") announcement_date, announcement_content  ', $cond, NULL, null, NULL, 0, 'All');
+	if ($db->getRowCount() > 0) {
+		echo "<table class=\"listing form\" border=\"1\" align=\"center\" cellpadding=\"5\" cellspacing=\"0\" width=\"80%\">";
+			echo '<tr><th colspan="4" class="full">Announcements</th></tr>';
+			
+		while($data = mysql_fetch_object($announcements)){
+			echo '<tr class="bg">
+                        <td class="first" colspan="3" align="left"><strong>', $data->announcement_title, '</strong></td>
+                        <td class="last" align="left">', $data->announcement_date, '</td>
+                    </tr>';
+			echo '<tr>
+                        <td colspan="4" align="left">', $data->announcement_title, '</td>
+                    </tr>';
+		}
+		echo '</table>';
+	}
+	
 $data = array();
-if ($UTYPE == "SD") {
-    $current_date = date("Y-m-d", mktime(date('H')+5,date('i')+30,date('s')));    
+if ($UTYPE == "SD") {  
 
     $data_user = $db->fetchRecord(' tb_student_details ', ' std_branch,std_batch ', ' std_id=' . $_SESSION['UID'] . ' ');
     $batch_id = $data_user->std_batch;

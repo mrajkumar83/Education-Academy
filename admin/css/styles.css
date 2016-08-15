@@ -29,10 +29,10 @@ h1{color:#01aae3; margin:2px 0; font-size:18px;}
 .login-box .label-box input[type=text], .label-box input[type=password]{border:1px solid #ccc; height:25px; width:150px;}
 .left-panel{width:163px; display:inline-block; height:475px; overflow:auto; vertical-align:top; margin-left:1px;}
 .left-menu{ /*border-bottom:2px solid #1374d6;*/ width: 144px;}
-.left-menu h2{background:url(../img/menu-center.png); text-align:left; font-size:11px; padding-left:5px; color:#fff; height:22px; line-height:22px; float:left; width:122px;}
+.left-menu h2{background:url(../img/menu-center.png); text-align:left; font-size:11px; padding-left:5px; color:#fff; height:22px; line-height:22px; float:left; width:125px;}
 .left-menu .left{background:url(../img/menu-left.png); width:7px; height:21px; float:left;}
 .left-menu .right{background:url(../img/menu-right.png); width:7px; height:21px; float:left;}
-.left-menu ul{list-style-type:none; float:left; width:139px; border-bottom:2px solid #1374d6; margin-bottom:3px;}
+.left-menu ul{list-style-type:none; float:left; width:143px; border-bottom:2px solid #1374d6; margin-bottom:3px;}
 .left-menu ul li{ background-color:#eee; background-image:url(../img/arrow.png); background-repeat:no-repeat; background-position:2px center; margin-bottom:2px; height:25px; line-height:25px; padding:0 0 0 16px;}
 .leftMenuActive, .leftMenuActive a, .left-menu ul li:hover{background-color:#01AAE3 !important;color:#FFFFFF !important; font-weight:bold; text-decoration:none; display:block;}
 .left-menu ul li a{color:#01AAE3; font-weight:bold; text-decoration:none; display:block;}

@@ -18,8 +18,8 @@
 				
 				<div class="left"></div><h2>Accomadation</h2><div class="right"></div>
 				<ul>
-					   <li><a href="accomadation.php" target="frame2">Add Accomadation</a></li>
-					   <li><a href="manage_accomadations.php" target="frame2">Manage Accom.s</a></li>
+					   <li><a href="accomodation_details.php" target="frame2">Add Accomadation</a></li>
+					   <li><a href="manage_accomadation_details.php" target="frame2">Manage Accom.s</a></li>
 				</ul>
 				
 		</div>

@@ -19,7 +19,7 @@
 				<div class="left"></div><h2>Vehicles</h2><div class="right"></div>
 				<ul>
 					   <li><a href="vehicle.php" target="frame2">Add Vehicle</a></li>
-					   <li><a href="manage_vehicles.php" target="frame2">Manage Vehicles</a></li>
+					   <li><a href="manage_vehicle_details.php" target="frame2">Manage Vehicles</a></li>
 				</ul>
 				
 		</div>

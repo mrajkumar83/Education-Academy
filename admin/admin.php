@@ -74,6 +74,12 @@
 				<li><a href="staff_attendance.php" target="frame2">Add Attendance</a></li>
 				<li><a href="manage_attendance.php" target="frame2">Attendance</a></li>
 			</ul>
+			<br />
+			<div class="left"></div><h2>Announcement </h2><div class="right"></div>	
+			<ul>
+				<li><a href="announcements.php" target="frame2">Add Announcement</a></li>
+				<li><a href="manage_announcements.php" target="frame2">Manage Announcements</a></li>
+			</ul>
 	</div>
 </div>
 	<iframe src="welcome.php" class="inner-frame" name="frame2" id="frame2" frameborder="0">

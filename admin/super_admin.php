@@ -123,6 +123,12 @@
 					   <li><a href="test.php" target="frame2">Add Test</a></li>
 					   <li><a href="manage_test.php" target="frame2">Manage Test</a></li>
 				</ul>
+				<br />
+				<div class="left"></div><h2>Announcement </h2><div class="right"></div>	
+				<ul>
+					<li><a href="announcements.php" target="frame2">Add Announcement</a></li>
+					<li><a href="manage_announcements.php" target="frame2">Manage Announce.s</a></li>
+				</ul>
 				
 		</div>
 		</div>

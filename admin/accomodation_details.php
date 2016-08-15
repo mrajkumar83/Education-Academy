@@ -17,6 +17,7 @@ $accomadation_category = '0';
 $accomadation_price = '0.0';
 $accomadation_number = '';
 $accomadation_rooms = 1;
+$accomadation_address = '';
 $accomadation_status = 'E';
 
 if ($op == 'E' && $id > 0) {

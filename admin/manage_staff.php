@@ -21,7 +21,7 @@ switch ($utype) {
         break;
 }
 $tables .= ' LEFT JOIN tb_branches B ON B.branch_id=U.user_branch ';
-$result = $db->fetchAllRecord($tables, ' U.user_id, U.user_name, U.user_fullname, U.user_email, U.user_status, U.user_role,U.user_type, U.role_permission ,U.user_branch, B.branch_name ', $cond, NULL, '  user_name', NULL, 0, 'All');
+$result = $db->fetchAllRecord($tables, ' U.user_id, U.user_name, U.user_fullname, U.user_email, U.user_status, U.user_type, U.role_permission ,U.user_branch, B.branch_name ', $cond, NULL, '  user_name', NULL, 0, 'All');
 ?>
 <div id="main">
     <div id="sts"></div>

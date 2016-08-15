@@ -55,8 +55,8 @@ switch ($op) {
         $Name = $staff_fname . ' ' . $staff_lname;
         $image = (isset($_FILES['staff_photo']) && isset($_FILES['staff_photo']['name']) && ($_FILES['staff_photo']['name'] != '')) ? fileupload('IMG', '../photos', 'staff_photo', 'N', '', $id) : '';
 
-        $fields = ' user_id="", user_name = "' . $user_name . '", user_password = "' . md5($user_password) . '", user_type = "' . $utype . '", user_fullname="' . htmlspecialchars(trim($Name)) . '"
-		, user_email = "' . $staff_email . '", role_permission = "' . $role_permission . '", user_createdby = "' . $_SESSION['UID'] . '",   user_branch = "' . (isset($user_branch) ? $user_branch : $branch_rec->user_branch) . '", user_createddate="' . date(DATE_TIME_FORMAT) . '", user_modifeddate="0000-00-00 00:00:00"';
+        $fields = ' user_id=NULL, user_name = "' . $user_name . '", user_password = "' . md5($user_password) . '", user_type = "' . $utype . '", user_fullname="' . htmlspecialchars(trim($Name)) . '"
+		, user_email = "' . $staff_email . '", role_permission = "' . $role_permission . '", user_sess="' . $_SESSION['UID'] . '", user_createdby = "' . $_SESSION['UID'] . '",   user_branch = "' . (isset($user_branch) ? $user_branch : $branch_rec->user_branch) . '", user_createddate="' . date(DATE_TIME_FORMAT) . '", user_modifeddate=""';
 
         $store = $db->storeDetails('tb_users', $fields);
 
@@ -64,7 +64,8 @@ switch ($op) {
             $id = $db->newRowId;
             $image = (isset($_FILES['staff_photo']) && isset($_FILES['staff_photo']['name']) && ($_FILES['staff_photo']['name'] != '')) ? fileupload('IMG', '../photos', 'staff_photo', 'N', '', $id) : '';
 
-            $fields = ' staff_id = "' . $id . '", staff_fname = "' . $staff_fname . '", staff_lname = "' . $staff_lname . '", staff_phno = "' . $staff_phno . '" ';
+            $fields = ' staff_id = "' . $id . '", staff_fname = "' . $staff_fname . '", staff_lname = "' . $staff_lname . '" ';
+			$fields .= (isset($staff_phno) && $staff_phno != '') ? ', staff_phno = "' . $staff_phno . '" ' : '';
             $fields .= ', staff_mobile = "' . $staff_mobile . '", staff_email = "' . $staff_email . '", staff_semail = "' . $staff_semail . '", staff_photo = "' . $image . '"';
             $fields .= ', staff_address = "' . $staff_address . '", staff_createddate = "' . date(DATE_TIME_FORMAT) . '", staff_modifeddate="0000-00-00 00:00:00"';
             $fields .= ', staff_createdby = "' . $_SESSION['UID'] . '" ';
@@ -102,6 +103,7 @@ switch ($op) {
                         $role_name = 'Quaters Incharge';
                     }
                 }
+				/*
                 $body = '<div  style="float:left;width:960px;height: 500px; background: #fff; padding-left:15px;"> 
         		
        			<h1><strong>Account Activated </strong></h1>  
@@ -148,7 +150,7 @@ switch ($op) {
 				if($staff_email != ''){
 					mailClient($staff_email,$body, $subject, ADMINNAME, ADMINMAIL, $fullname);
 				}
-
+*/
                 $location = 'Location: ../manage_staff.php?'.((isset($UTYPE) && $UTYPE == 'SA') ? '' : 'utype='.$utype);
                 header($location);
                 exit;
